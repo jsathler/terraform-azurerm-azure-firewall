@@ -1,4 +1,4 @@
-# AzureRM Azure firewall Terraform module
+# Azure firewall Terraform module
 
 Terraform module which creates Azure Firewall resources on Azure.
 
@@ -15,7 +15,7 @@ Terraform 1.5.6 and newer.
 
 ```hcl
 module "azure-firewall" {
-  source               = "jsathler/azure-firewall/azurerm"
+  source              = "jsathler/azure-firewall/azurerm"
   name                = "azure-firewall"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
