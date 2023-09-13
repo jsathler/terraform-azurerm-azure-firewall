@@ -10,7 +10,7 @@ provider "azurerm" {
 }
 
 resource "azurerm_resource_group" "default" {
-  name     = "firewall-example-rg"
+  name     = "firewalltunneled-example-rg"
   location = local.location
 }
 
@@ -23,7 +23,7 @@ resource "azurerm_public_ip_prefix" "default" {
 }
 
 module "hub-vnet" {
-  source              = "../../../vnet"
+  source              = "jsathler/network/azurerm"
   name                = "hub"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
@@ -43,7 +43,7 @@ module "hub-vnet" {
 }
 
 module "firewall-policy" {
-  source              = "../../../firewall-policy"
+  source              = "jsathler/firewall-policy/azurerm"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
 

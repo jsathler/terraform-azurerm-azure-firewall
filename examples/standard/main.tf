@@ -23,7 +23,7 @@ resource "azurerm_public_ip_prefix" "default" {
 }
 
 module "hub-vnet" {
-  source              = "../../../vnet"
+  source              = "jsathler/network/azurerm"
   name                = "hub"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
@@ -39,7 +39,7 @@ module "hub-vnet" {
 }
 
 module "firewall-policy" {
-  source              = "../../../firewall-policy"
+  source              = "jsathler/firewall-policy/azurerm"
   location            = azurerm_resource_group.default.location
   resource_group_name = azurerm_resource_group.default.name
 
@@ -49,7 +49,7 @@ module "firewall-policy" {
 }
 
 module "firewall-policy-global-rules" {
-  source             = "../../../firewall-policy-rule-collection-group"
+  source             = "jsathler/firewall-policy-rule-collection-group/azurerm"
   name               = "global-rules"
   firewall_policy_id = module.firewall-policy.policy_id
   priority           = 100
