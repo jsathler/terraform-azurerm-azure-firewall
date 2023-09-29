@@ -1,19 +1,3 @@
-# Azure firewall Terraform module
-
-Terraform module which creates Azure Firewall resources on Azure.
-
-These types of resources are supported:
-
-* [Public IP](https://learn.microsoft.com/en-us/azure/virtual-network/ip-services/public-ip-addresses)
-* [Azure Firewall](https://learn.microsoft.com/en-us/azure/firewall/overview)
-
-## Terraform versions
-
-Terraform 1.5.6 and newer.
-
-## Usage
-
-```hcl
 module "azure-firewall" {
   source              = "jsathler/azure-firewall/azurerm"
   name                = "azure-firewall"
@@ -27,6 +11,3 @@ module "azure-firewall" {
     public_ip_prefix_id = azurerm_public_ip_prefix.default.id
   }
 }
-```
-
-More samples in examples folder
